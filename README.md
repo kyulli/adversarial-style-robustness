@@ -88,37 +88,6 @@ adversarial-style-robustness/
 
 **Hypothesis 3**: PGD attacks will require 2-3x smaller perturbations than FGSM to succeed due to the iterative nature of PGD.
 
-## Experimental Plan
-
-### Phase 1: Baseline Setup (Week 1-2)
-- [ ] Download and preprocess WikiArt dataset
-- [ ] Implement data loading pipeline
-- [ ] Train baseline ResNet-18 on style classification
-- [ ] Evaluate baseline accuracy
-
-### Phase 2: Adversarial Attacks (Week 2-3)
-- [ ] Implement FGSM attack
-- [ ] Implement PGD attack
-- [ ] Generate adversarial examples
-- [ ] Measure attack success rates and perturbation magnitudes
-
-### Phase 3: Defense Mechanisms (Week 3-4)
-- [ ] Implement adversarial training
-- [ ] Implement data augmentation-based defense
-- [ ] Train defended models
-- [ ] Compare robustness across defenses
-
-### Phase 4: Ablation Studies & Analysis (Week 4-5)
-- [ ] Style-wise robustness analysis
-- [ ] Perturbation type comparison
-- [ ] Defense mechanism ablation
-- [ ] Visualization and interpretation
-
-### Phase 5: Finalization (Week 5-6)
-- [ ] Generate poster
-- [ ] Write final report
-- [ ] Prepare presentation materials
-
 ## Dependencies
 
 See `requirements.txt` for full list. Key libraries:
@@ -201,11 +170,6 @@ See `results/metrics.csv` and visualizations in `results/visualizations/`
 
 This project is for educational purposes as part of CSCI 1470 at Brown University.
 
-## Contact
-
-For questions or discussions about this project, reach out to the team or contact your TA mentor.
-
----
 
 **Last Updated**: [Date]
 **Status**: In Progress
