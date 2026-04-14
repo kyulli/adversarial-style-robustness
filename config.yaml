@@ -1,0 +1,105 @@
+# Configuration for Adversarial Robustness in Style Recognition Project
+
+# Data Configuration
+data:
+  dataset: "wikiart"
+  data_dir: "./data/wikiart"
+  num_styles: 27
+  image_size: 224
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  num_workers: 4
+  seed: 42
+
+# Model Configuration
+model:
+  architecture: "resnet18"  # Options: resnet18, resnet50, efficientnet_b0
+  pretrained: true
+  num_classes: 27
+  dropout_rate: 0.5
+
+# Training Configuration
+training:
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 1e-4
+  optimizer: "adam"  # Options: adam, sgd
+  scheduler: "cosine"  # Options: cosine, step, exponential
+  early_stopping_patience: 10
+  device: "cuda"  # Options: cuda, cpu
+
+# Attack Configuration
+attack:
+  methods:
+    - fgsm
+    - pgd
+  
+  # FGSM Parameters
+  fgsm:
+    epsilon: [0.01, 0.02, 0.03, 0.05, 0.1]
+    
+  # PGD Parameters
+  pgd:
+    epsilon: [0.01, 0.02, 0.03, 0.05, 0.1]
+    step_size: 0.001
+    num_steps: 20
+
+# Defense Configuration
+defense:
+  methods:
+    - adversarial_training
+    - data_augmentation
+    - preprocessing
+  
+  # Adversarial Training Parameters
+  adversarial_training:
+    attack_method: "pgd"
+    epsilon: 0.03
+    step_size: 0.001
+    num_steps: 10
+    alpha: 0.5  # Mixing ratio of adversarial examples in training
+  
+  # Data Augmentation Parameters
+  data_augmentation:
+    random_crop: true
+    random_rotation: true
+    color_jitter: true
+    gaussian_blur: false
+  
+  # Preprocessing Parameters
+  preprocessing:
+    gaussian_filter_sigma: 1.0
+    quantization_bits: 8
+
+# Evaluation Configuration
+evaluation:
+  metrics:
+    - accuracy
+    - attack_success_rate
+    - perturbation_magnitude
+    - mean_squared_error
+  
+  style_wise_analysis: true
+  generate_visualizations: true
+  
+  # Robustness evaluation parameters
+  robustness:
+    compute_robustness_curve: true
+    epsilon_range: [0.0, 0.01, 0.02, 0.03, 0.05, 0.1, 0.15, 0.2]
+
+# Output Configuration
+output:
+  results_dir: "./results"
+  save_best_model: true
+  save_frequency: 5  # Save checkpoint every N epochs
+  log_frequency: 10  # Log metrics every N batches
+  save_adversarial_examples: true
+  save_saliency_maps: true
+
+# Experiment Tracking
+tracking:
+  use_tensorboard: true
+  log_dir: "./results/logs"
+  save_config: true

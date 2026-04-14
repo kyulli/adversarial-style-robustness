@@ -69,11 +69,7 @@ adversarial-style-robustness/
 │   └── visualizations/
 │       ├── adversarial_examples/     # Adversarial perturbations
 │       ├── saliency_maps/            # Model attention maps
-│       └── robustness_curves.png     # Robustness vs. perturbation
-│
-├── notebooks/
-│   ├── eda.ipynb                     # Exploratory data analysis
-│   └── results_analysis.ipynb        # Results visualization
+│       └── robustness_curves.png     # Robustness vs. perturbations
 │
 └── docs/
     ├── hypothesis.md                 # Pre-formulated hypotheses
@@ -87,6 +83,37 @@ adversarial-style-robustness/
 **Hypothesis 2**: Abstract/impressionist styles will be more robust than representational styles, because they rely on high-level artistic features rather than low-level pixel patterns.
 
 **Hypothesis 3**: PGD attacks will require 2-3x smaller perturbations than FGSM to succeed due to the iterative nature of PGD.
+
+## Experimental Plan
+
+### Phase 1: Baseline Setup (Week 1-2)
+- [ ] Download and preprocess WikiArt dataset
+- [ ] Implement data loading pipeline
+- [ ] Train baseline ResNet-18 on style classification
+- [ ] Evaluate baseline accuracy
+
+### Phase 2: Adversarial Attacks (Week 2-3)
+- [ ] Implement FGSM attack
+- [ ] Implement PGD attack
+- [ ] Generate adversarial examples
+- [ ] Measure attack success rates and perturbation magnitudes
+
+### Phase 3: Defense Mechanisms (Week 3-4)
+- [ ] Implement adversarial training
+- [ ] Implement data augmentation-based defense
+- [ ] Train defended models
+- [ ] Compare robustness across defenses
+
+### Phase 4: Ablation Studies & Analysis (Week 4-5)
+- [ ] Style-wise robustness analysis
+- [ ] Perturbation type comparison
+- [ ] Defense mechanism ablation
+- [ ] Visualization and interpretation
+
+### Phase 5: Finalization (Week 5-6)
+- [ ] Generate poster
+- [ ] Write final report
+- [ ] Prepare presentation materials
 
 ## Dependencies
 
@@ -153,8 +180,8 @@ python experiments/ablation_studies.py \
 See `results/metrics.csv` and visualizations in `results/visualizations/`
 
 ## Team Members
-- Deepak Kulkarni 
-- Qiuli Lai
+- Deepak Kulkarni
+- Qiuli Lai 
 
 ## References
 
