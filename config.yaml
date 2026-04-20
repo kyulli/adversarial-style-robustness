@@ -4,7 +4,7 @@
 data:
   dataset: "wikiart"
   data_dir: "./data/wikiart"
-  num_styles: 27
+  num_styles: 5  # subset for Colab (Abstract_Expressionism, Impressionism, Baroque, Realism, Cubism)
   image_size: 224
   train_split: 0.7
   val_split: 0.15
@@ -28,7 +28,7 @@ training:
   optimizer: "adam"  # Options: adam, sgd
   scheduler: "cosine"  # Options: cosine, step, exponential
   early_stopping_patience: 10
-  device: "cuda"  # Options: cuda, cpu
+  device: "mps"   # Options: cuda, mps (Apple Silicon), cpu
 
 # Attack Configuration
 attack:

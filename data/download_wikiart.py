@@ -18,35 +18,26 @@ import sys
 from pathlib import Path
 
 
-# 27 WikiArt styles used in this project
+# 5 representative styles (subset for Colab disk constraints)
+# Covers: abstract, impressionist, baroque, realism, cubism — enough for all experiments
 WIKIART_STYLES = [
     "Abstract_Expressionism",
-    "Action_painting",
-    "Analytical_Cubism",
-    "Art_Nouveau_Modern",
-    "Baroque",
-    "Color_Field_Painting",
-    "Contemporary_Realism",
-    "Cubism",
-    "Early_Renaissance",
-    "Expressionism",
-    "Fauvism",
-    "High_Renaissance",
     "Impressionism",
-    "Mannerism_Late_Renaissance",
-    "Minimalism",
-    "Naive_Art_Primitivism",
-    "New_Realism",
-    "Northern_Renaissance",
-    "Pointillism",
-    "Pop_Art",
-    "Post_Impressionism",
+    "Baroque",
     "Realism",
-    "Rococo",
-    "Romanticism",
-    "Symbolism",
-    "Synthetic_Cubism",
-    "Ukiyo_e",
+    "Cubism",
+]
+
+# Full 27 styles (use when disk space is not a concern, e.g. Oscar HPC)
+WIKIART_STYLES_FULL = [
+    "Abstract_Expressionism", "Action_painting", "Analytical_Cubism",
+    "Art_Nouveau_Modern", "Baroque", "Color_Field_Painting",
+    "Contemporary_Realism", "Cubism", "Early_Renaissance",
+    "Expressionism", "Fauvism", "High_Renaissance", "Impressionism",
+    "Mannerism_Late_Renaissance", "Minimalism", "Naive_Art_Primitivism",
+    "New_Realism", "Northern_Renaissance", "Pointillism", "Pop_Art",
+    "Post_Impressionism", "Realism", "Rococo", "Romanticism",
+    "Symbolism", "Synthetic_Cubism", "Ukiyo_e",
 ]
 
 
@@ -71,18 +62,23 @@ def download_from_huggingface(output_dir: str):
 
     # Get style label names
     style_names = dataset.features["style"].names
-    print(f"Found {len(style_names)} styles: {style_names}")
+    print(f"Filtering to {len(WIKIART_STYLES)} styles: {WIKIART_STYLES}")
 
-    # Save images per style
+    # Save images per style (subset only)
     from tqdm import tqdm
+    count = 0
     for idx, example in enumerate(tqdm(dataset, desc="Saving images")):
         style = style_names[example["style"]]
+        if style not in WIKIART_STYLES:
+            continue
         style_dir = output_path / style
         style_dir.mkdir(exist_ok=True)
 
         img_path = style_dir / f"{idx:06d}.jpg"
         if not img_path.exists():
-            example["image"].save(img_path, "JPEG")
+            example["image"].save(img_path, "JPEG", quality=85)
+        count += 1
+    print(f"Saved {count} images across {len(WIKIART_STYLES)} styles.")
 
     print(f"\nDataset saved to {output_dir}")
     verify_dataset(output_dir)
