@@ -14,8 +14,11 @@ from tqdm import tqdm
 import numpy as np
 
 # Import project modules
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from data_loader import get_dataloaders
-from baseline_model import StyleClassifier, count_parameters
+from models.baseline_model import StyleClassifier, count_parameters
 
 
 class Trainer:
@@ -199,15 +202,20 @@ def main():
     parser.add_argument('--output_dir', type=str, default='./results/baseline',
                         help='Output directory for results')
     parser.add_argument('--device', type=str, default='cuda',
-                        choices=['cuda', 'cpu'],
+                        choices=['cuda', 'mps', 'cpu'],
                         help='Device to use for training')
     parser.add_argument('--num_workers', type=int, default=4,
                         help='Number of data loading workers')
     
     args = parser.parse_args()
     
-    # Set device
-    device = args.device if torch.cuda.is_available() else 'cpu'
+    # Set device — supports cuda, mps (Apple Silicon), and cpu
+    if args.device == 'cuda' and torch.cuda.is_available():
+        device = 'cuda'
+    elif args.device == 'mps' and torch.backends.mps.is_available():
+        device = 'mps'
+    else:
+        device = 'cpu'
     print(f"Using device: {device}")
     
     # Load data

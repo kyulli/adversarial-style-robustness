@@ -9,7 +9,7 @@ from torchvision.models import resnet18, resnet50
 from torchvision.models import efficientnet_b0
 
 
-def get_baseline_model(model_name='resnet18', num_classes=5, pretrained=True, device='cuda'):
+def get_baseline_model(model_name='resnet18', num_classes=5, pretrained=True, device='cpu'):
     """
     Create a baseline model for style classification.
     
@@ -53,7 +53,7 @@ class StyleClassifier(nn.Module):
     
     def __init__(self, backbone='resnet18', num_classes=27, pretrained=True):
         super().__init__()
-        self.backbone = get_baseline_model(backbone, num_classes, pretrained)
+        self.backbone = get_baseline_model(backbone, num_classes, pretrained, device='cpu')
         self.num_classes = num_classes
     
     def forward(self, x):

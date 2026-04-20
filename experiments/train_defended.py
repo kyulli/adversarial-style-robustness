@@ -49,7 +49,12 @@ def main():
                         help='Fraction of adversarial examples per batch')
     args = parser.parse_args()
 
-    device = args.device if torch.cuda.is_available() else 'cpu'
+    if args.device == 'cuda' and torch.cuda.is_available():
+        device = 'cuda'
+    elif args.device == 'mps' and torch.backends.mps.is_available():
+        device = 'mps'
+    else:
+        device = 'cpu'
     print(f"Using device: {device}")
 
     output_dir = args.output_dir or f'./results/{args.defense}'
