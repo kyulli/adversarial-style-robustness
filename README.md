@@ -86,31 +86,31 @@ adversarial-style-robustness/
 
 ## Experimental Plan
 
-### Phase 1: Baseline Setup (Week 1-2)
+### Phase 1: Baseline Setup
 - [ ] Download and preprocess WikiArt dataset
 - [ ] Implement data loading pipeline
 - [ ] Train baseline ResNet-18 on style classification
 - [ ] Evaluate baseline accuracy
 
-### Phase 2: Adversarial Attacks (Week 2-3)
+### Phase 2: Adversarial Attacks
 - [ ] Implement FGSM attack
 - [ ] Implement PGD attack
 - [ ] Generate adversarial examples
 - [ ] Measure attack success rates and perturbation magnitudes
 
-### Phase 3: Defense Mechanisms (Week 3-4)
+### Phase 3: Defense Mechanisms
 - [ ] Implement adversarial training
 - [ ] Implement data augmentation-based defense
 - [ ] Train defended models
 - [ ] Compare robustness across defenses
 
-### Phase 4: Ablation Studies & Analysis (Week 4-5)
+### Phase 4: Ablation Studies & Analysis
 - [ ] Style-wise robustness analysis
 - [ ] Perturbation type comparison
 - [ ] Defense mechanism ablation
 - [ ] Visualization and interpretation
 
-### Phase 5: Finalization (Week 5-6)
+### Phase 5: Finalization 
 - [ ] Generate poster
 - [ ] Write final report
 - [ ] Prepare presentation materials
@@ -128,7 +128,7 @@ See `requirements.txt` for full list. Key libraries:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/adversarial-style-robustness.git
+git clone git@github.com:kyulli/adversarial-style-robustness.git
 cd adversarial-style-robustness
 
 # Create virtual environment
@@ -173,8 +173,8 @@ python experiments/ablation_studies.py \
 ## Results
 
 ### Baseline Performance
-- Top-1 Accuracy: [To be filled]
-- Top-5 Accuracy: [To be filled]
+- Top-1 Accuracy: 
+- Top-5 Accuracy: 
 
 ### Robustness Results
 See `results/metrics.csv` and visualizations in `results/visualizations/`
@@ -197,6 +197,3 @@ See `results/metrics.csv` and visualizations in `results/visualizations/`
 
 This project is for educational purposes as part of CSCI 1470 at Brown University.
 
-
-**Last Updated**: [Date]
-**Status**: In Progress
