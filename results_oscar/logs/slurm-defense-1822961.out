@@ -1,0 +1,123 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 1822961
+##  Job Name : adv-defense
+##  Nodelist : gpu3005
+##      CPUs : 
+##  Mem/Node : 32768 MB
+## Directory : /oscar/home/qlai4/adversarial-style-robustness
+##   Job Started : Tue Apr 21 07:28:58 PM EDT 2026
+###############################################################################
+=== Adversarial Training ===
+Using device: cuda
+Number of classes: 5
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /users/qlai4/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+Model parameters: 11,179,077
+Adversarial training: method=pgd, epsilon=0.03, alpha=0.5
+Epoch 1/50  Train loss=0.9940 acc=0.5847  Val loss=0.9455 acc=0.6090
+  ✓ Best model saved
+Epoch 2/50  Train loss=0.8667 acc=0.6343  Val loss=1.1363 acc=0.5374
+Epoch 3/50  Train loss=0.8275 acc=0.6538  Val loss=0.7734 acc=0.6811
+  ✓ Best model saved
+Epoch 4/50  Train loss=0.8130 acc=0.6566  Val loss=0.7660 acc=0.6873
+  ✓ Best model saved
+Epoch 5/50  Train loss=0.7864 acc=0.6738  Val loss=0.6994 acc=0.7065
+  ✓ Best model saved
+Epoch 6/50  Train loss=0.7822 acc=0.6714  Val loss=0.7634 acc=0.6738
+Epoch 7/50  Train loss=0.7604 acc=0.6815  Val loss=0.6614 acc=0.7303
+  ✓ Best model saved
+Epoch 8/50  Train loss=0.7483 acc=0.6882  Val loss=0.6948 acc=0.7127
+Epoch 9/50  Train loss=0.7375 acc=0.6952  Val loss=0.8661 acc=0.6601
+Epoch 10/50  Train loss=0.7268 acc=0.6949  Val loss=0.7118 acc=0.7008
+Epoch 11/50  Train loss=0.7102 acc=0.7037  Val loss=0.6653 acc=0.7269
+Epoch 12/50  Train loss=0.6993 acc=0.7090  Val loss=0.6714 acc=0.7204
+Epoch 13/50  Train loss=0.6836 acc=0.7174  Val loss=0.6357 acc=0.7394
+  ✓ Best model saved
+Epoch 14/50  Train loss=0.6764 acc=0.7155  Val loss=0.7040 acc=0.7208
+Epoch 15/50  Train loss=0.6537 acc=0.7262  Val loss=0.7030 acc=0.7176
+Epoch 16/50  Train loss=0.6435 acc=0.7304  Val loss=0.5771 acc=0.7624
+  ✓ Best model saved
+Epoch 17/50  Train loss=0.6266 acc=0.7363  Val loss=0.6136 acc=0.7515
+Epoch 18/50  Train loss=0.6143 acc=0.7435  Val loss=0.7342 acc=0.7115
+Epoch 19/50  Train loss=0.6006 acc=0.7505  Val loss=0.6355 acc=0.7486
+Epoch 20/50  Train loss=0.5854 acc=0.7554  Val loss=0.6285 acc=0.7527
+Epoch 21/50  Train loss=0.5579 acc=0.7653  Val loss=0.6248 acc=0.7549
+Epoch 22/50  Train loss=0.5487 acc=0.7680  Val loss=0.5996 acc=0.7620
+Epoch 23/50  Train loss=0.5303 acc=0.7783  Val loss=0.6325 acc=0.7515
+Epoch 24/50  Train loss=0.5155 acc=0.7842  Val loss=0.5903 acc=0.7591
+Epoch 25/50  Train loss=0.4893 acc=0.7948  Val loss=0.6608 acc=0.7468
+Epoch 26/50  Train loss=0.4679 acc=0.8041  Val loss=0.6331 acc=0.7507
+Early stopping at epoch 26
+
+Done. Model saved to ./results/adversarial_training/best_model.pth
+=== Augmentation Defense ===
+Using device: cuda
+Number of classes: 5
+Model parameters: 11,179,077
+Augmentation-based training...
+Epoch 1/50  Train loss=0.8832 acc=0.6326  Val loss=0.8579 acc=0.6575
+  ✓ Best model saved
+Epoch 2/50  Train loss=0.7763 acc=0.6777  Val loss=0.7801 acc=0.6720
+  ✓ Best model saved
+Epoch 3/50  Train loss=0.7394 acc=0.6944  Val loss=0.8630 acc=0.6425
+Epoch 4/50  Train loss=0.7078 acc=0.7081  Val loss=0.7622 acc=0.6974
+  ✓ Best model saved
+Epoch 5/50  Train loss=0.6856 acc=0.7178  Val loss=0.6805 acc=0.7299
+  ✓ Best model saved
+Epoch 6/50  Train loss=0.6673 acc=0.7271  Val loss=0.6828 acc=0.7242
+Epoch 7/50  Train loss=0.6518 acc=0.7356  Val loss=0.7423 acc=0.6932
+Epoch 8/50  Train loss=0.6381 acc=0.7338  Val loss=0.6931 acc=0.7240
+Epoch 9/50  Train loss=0.6323 acc=0.7397  Val loss=0.7437 acc=0.7026
+Epoch 10/50  Train loss=0.6120 acc=0.7487  Val loss=0.7580 acc=0.7020
+Epoch 11/50  Train loss=0.5986 acc=0.7547  Val loss=0.7105 acc=0.7158
+Epoch 12/50  Train loss=0.5907 acc=0.7575  Val loss=0.6928 acc=0.7190
+Epoch 13/50  Train loss=0.5754 acc=0.7633  Val loss=0.5730 acc=0.7682
+  ✓ Best model saved
+Epoch 14/50  Train loss=0.5645 acc=0.7703  Val loss=0.7549 acc=0.7111
+Epoch 15/50  Train loss=0.5458 acc=0.7775  Val loss=0.6209 acc=0.7537
+Epoch 16/50  Train loss=0.5393 acc=0.7792  Val loss=0.6027 acc=0.7549
+Epoch 17/50  Train loss=0.5221 acc=0.7899  Val loss=0.5934 acc=0.7611
+Epoch 18/50  Train loss=0.5130 acc=0.7911  Val loss=0.6037 acc=0.7521
+Epoch 19/50  Train loss=0.5037 acc=0.7915  Val loss=0.6679 acc=0.7355
+Epoch 20/50  Train loss=0.4856 acc=0.8015  Val loss=0.6035 acc=0.7561
+Epoch 21/50  Train loss=0.4739 acc=0.8076  Val loss=0.5499 acc=0.7708
+  ✓ Best model saved
+Epoch 22/50  Train loss=0.4583 acc=0.8140  Val loss=0.5655 acc=0.7769
+  ✓ Best model saved
+Epoch 23/50  Train loss=0.4444 acc=0.8184  Val loss=0.5924 acc=0.7654
+Epoch 24/50  Train loss=0.4366 acc=0.8220  Val loss=0.5527 acc=0.7801
+  ✓ Best model saved
+Epoch 25/50  Train loss=0.4151 acc=0.8322  Val loss=0.5758 acc=0.7716
+Epoch 26/50  Train loss=0.4094 acc=0.8323  Val loss=0.5654 acc=0.7827
+  ✓ Best model saved
+Epoch 27/50  Train loss=0.3857 acc=0.8436  Val loss=0.5997 acc=0.7751
+Epoch 28/50  Train loss=0.3719 acc=0.8518  Val loss=0.5578 acc=0.7823
+Epoch 29/50  Train loss=0.3567 acc=0.8544  Val loss=0.5814 acc=0.7850
+  ✓ Best model saved
+Epoch 30/50  Train loss=0.3506 acc=0.8567  Val loss=0.5881 acc=0.7809
+Epoch 31/50  Train loss=0.3237 acc=0.8696  Val loss=0.6391 acc=0.7765
+Epoch 32/50  Train loss=0.3096 acc=0.8733  Val loss=0.6151 acc=0.7735
+Epoch 33/50  Train loss=0.2961 acc=0.8801  Val loss=0.6270 acc=0.7807
+Epoch 34/50  Train loss=0.2801 acc=0.8877  Val loss=0.6233 acc=0.7803
+Epoch 35/50  Train loss=0.2614 acc=0.8953  Val loss=0.6315 acc=0.7868
+  ✓ Best model saved
+Epoch 36/50  Train loss=0.2514 acc=0.9020  Val loss=0.6436 acc=0.7858
+Epoch 37/50  Train loss=0.2311 acc=0.9086  Val loss=0.6358 acc=0.7934
+  ✓ Best model saved
+Epoch 38/50  Train loss=0.2199 acc=0.9134  Val loss=0.6788 acc=0.7805
+Epoch 39/50  Train loss=0.2082 acc=0.9183  Val loss=0.6823 acc=0.7821
+Epoch 40/50  Train loss=0.1938 acc=0.9227  Val loss=0.6797 acc=0.7884
+Epoch 41/50  Train loss=0.1855 acc=0.9291  Val loss=0.6786 acc=0.7894
+Epoch 42/50  Train loss=0.1739 acc=0.9330  Val loss=0.6890 acc=0.7892
+Epoch 43/50  Train loss=0.1667 acc=0.9345  Val loss=0.6965 acc=0.7908
+Epoch 44/50  Train loss=0.1631 acc=0.9371  Val loss=0.7160 acc=0.7916
+Epoch 45/50  Train loss=0.1515 acc=0.9427  Val loss=0.7097 acc=0.7896
+Epoch 46/50  Train loss=0.1503 acc=0.9432  Val loss=0.7268 acc=0.7918
+Epoch 47/50  Train loss=0.1438 acc=0.9451  Val loss=0.7149 acc=0.7886
+Early stopping at epoch 47
+
+Done. Model saved to ./results/augmentation/best_model.pth
+=== Ablation Studies ===
+
+=== FGSM Robustness Curves ===
+  epsilon=0.000
+=== All done ===

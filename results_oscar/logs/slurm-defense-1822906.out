@@ -1,0 +1,13 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 1822906
+##  Job Name : adv-defense
+##  Nodelist : gpu3005
+##      CPUs : 
+##  Mem/Node : 32768 MB
+## Directory : /oscar/home/qlai4/adversarial-style-robustness
+##   Job Started : Tue Apr 21 07:22:44 PM EDT 2026
+###############################################################################
+=== Adversarial Training ===
+=== Augmentation Defense ===
+=== Ablation Studies ===
+=== All done ===

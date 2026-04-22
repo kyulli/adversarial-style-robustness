@@ -10,8 +10,10 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=qiuli_lai@brown.edu
 
-module load python/3.11.0
 module load cuda/11.8.0
+export PATH=$HOME/.local/bin:$PATH
+export PYTHONPATH=$HOME/adversarial-style-robustness:$PYTHONPATH
+pip install --user numpy --quiet
 
 cd ~/adversarial-style-robustness
 

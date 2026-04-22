@@ -1,0 +1,34 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.11.0"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.11.0"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+/users/qlai4/.local/lib/python3.9/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/oscar/home/qlai4/adversarial-style-robustness/experiments/train_defended.py", line 24, in <module>
+    from data_loader import get_dataloaders
+  File "/oscar/home/qlai4/adversarial-style-robustness/data_loader.py", line 6, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+/users/qlai4/.local/lib/python3.9/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/oscar/home/qlai4/adversarial-style-robustness/experiments/train_defended.py", line 24, in <module>
+    from data_loader import get_dataloaders
+  File "/oscar/home/qlai4/adversarial-style-robustness/data_loader.py", line 6, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+/users/qlai4/.local/lib/python3.9/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/oscar/home/qlai4/adversarial-style-robustness/experiments/ablation_studies.py", line 20, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
