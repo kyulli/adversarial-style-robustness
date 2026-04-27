@@ -1,8 +1,8 @@
 # Pre-Formulated Hypotheses for Ablation Studies
 
 **Project**: Adversarial Robustness in Artistic Style Recognition  
-**Team**: [Team Name]  
-**Date**: [Date Submitted]
+**Team**: Post Team
+**Date**: May 3, 2026
 
 ---
 
@@ -157,5 +157,4 @@ If Hypothesis 3 shows PGD is not more efficient:
 
 ---
 
-**Status**: Ready for TA Review  
-**Last Updated**: [Date]
+
