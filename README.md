@@ -27,55 +27,6 @@ This project investigates the robustness of deep learning models in artistic sty
 - Styles include: Abstract, Baroque, Cubism, Impressionism, Renaissance, etc.
 - Download: [WikiArt Official](https://www.wikiart.org/)
 
-## Project Structure
-
-```
-adversarial-style-robustness/
-├── README.md                          # This file
-├── requirements.txt                   # Python dependencies
-├── config.yaml                        # Configuration for experiments
-│
-├── data/
-│   ├── download_wikiart.py           # Script to download WikiArt dataset
-│   ├── preprocess.py                 # Data preprocessing and splitting
-│   └── dataloader.py                 # PyTorch DataLoader setup
-│
-├── models/
-│   ├── baseline.py                   # Baseline CNN architecture (ResNet-18)
-│   ├── defended_model.py             # Model with adversarial training
-│   └── utils.py                      # Model utilities
-│
-├── attacks/
-│   ├── fgsm.py                       # Fast Gradient Sign Method
-│   ├── pgd.py                        # Projected Gradient Descent
-│   ├── autoattack.py                 # AutoAttack wrapper (optional)
-│   └── utils.py                      # Attack utilities
-│
-├── defenses/
-│   ├── adversarial_training.py       # Adversarial training defense
-│   ├── data_augmentation.py          # Augmentation-based defense
-│   └── preprocessing.py              # Input preprocessing defense
-│
-├── experiments/
-│   ├── train_baseline.py             # Train baseline model
-│   ├── train_defended.py             # Train defended models
-│   ├── evaluate_robustness.py        # Robustness evaluation
-│   ├── ablation_studies.py           # Ablation study experiments
-│   └── generate_visualizations.py    # Create result visualizations
-│
-├── results/
-│   ├── metrics.csv                   # Quantitative results
-│   ├── logs/                         # Training logs
-│   └── visualizations/
-│       ├── adversarial_examples/     # Adversarial perturbations
-│       ├── saliency_maps/            # Model attention maps
-│       └── robustness_curves.png     # Robustness vs. perturbations
-│
-└── docs/
-    ├── hypothesis.md                 # Pre-formulated hypotheses
-    └── checkpoint_notes.md           # Notes from TA meetings
-```
-
 ## Key Hypotheses (Pre-Formulated)
 
 **Hypothesis 1**: Adversarial training will reduce attack success rates by >50% compared to standard training, because it exposes the model to adversarial examples during training.
@@ -83,37 +34,6 @@ adversarial-style-robustness/
 **Hypothesis 2**: Abstract/impressionist styles will be more robust than representational styles, because they rely on high-level artistic features rather than low-level pixel patterns.
 
 **Hypothesis 3**: PGD attacks will require 2-3x smaller perturbations than FGSM to succeed due to the iterative nature of PGD.
-
-## Experimental Plan
-
-### Phase 1: Baseline Setup
-- [ ] Download and preprocess WikiArt dataset
-- [ ] Implement data loading pipeline
-- [ ] Train baseline ResNet-18 on style classification
-- [ ] Evaluate baseline accuracy
-
-### Phase 2: Adversarial Attacks
-- [ ] Implement FGSM attack
-- [ ] Implement PGD attack
-- [ ] Generate adversarial examples
-- [ ] Measure attack success rates and perturbation magnitudes
-
-### Phase 3: Defense Mechanisms
-- [ ] Implement adversarial training
-- [ ] Implement data augmentation-based defense
-- [ ] Train defended models
-- [ ] Compare robustness across defenses
-
-### Phase 4: Ablation Studies & Analysis
-- [ ] Style-wise robustness analysis
-- [ ] Perturbation type comparison
-- [ ] Defense mechanism ablation
-- [ ] Visualization and interpretation
-
-### Phase 5: Finalization 
-- [ ] Generate poster
-- [ ] Write final report
-- [ ] Prepare presentation materials
 
 ## Dependencies
 
@@ -169,19 +89,6 @@ python experiments/ablation_studies.py \
     --config ./config.yaml \
     --output_dir ./results/ablations
 ```
-
-## Results
-
-### Baseline Performance
-- Top-1 Accuracy: 
-- Top-5 Accuracy: 
-
-### Robustness Results
-See `results/metrics.csv` and visualizations in `results/visualizations/`
-
-## Team Members
-- Deepak Kulkarni
-- Qiuli Lai 
 
 ## References
 
